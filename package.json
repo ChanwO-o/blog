@@ -1,8 +1,8 @@
 {
   "name": "chanwoopark-blog",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "cwp blog",
-  "main": "server.js",
+  "main": "blogserver.js",
   "repository": "",
   "author": "Chan Woo Park <14cpark@gmail.com>",
   "dependencies": {
