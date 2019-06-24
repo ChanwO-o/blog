@@ -2,10 +2,8 @@ commit msg
 
 ---------------------
 
-- initial commit resume portion & blog portion
-- organize tabs and sections
-
-
+- update links
+- rename entry js file
 
 
 TODO
@@ -13,7 +11,4 @@ TODO
 ---------------------
 
 - main page change to carousel with glass button slider
-- set main image to pullup bar workout
-- prepare list of random strings to generate on main
-- fill in remaining Lorem ipsum
-- move to github repo
+- embed soundcloud player
