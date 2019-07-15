@@ -6,8 +6,8 @@
   "repository": "",
   "author": "Chan Woo Park <14cpark@gmail.com>",
   "dependencies": {
-    "express": "3.2.6",
-    "mongoose": "4.11.10",
-    "body-parser": "1.17.2"
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.1"
   }
 }
