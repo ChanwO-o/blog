@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component/app.component';
+import { BlogpostComponent } from './blogposts/blogpost-view/blogpost-view.component'; // must import without file extension
 
 @NgModule({
   declarations: [ // register component to angular app
-    AppComponent
+    AppComponent,
+    BlogpostComponent
   ],
   imports: [ // other imported modules
     BrowserModule,
