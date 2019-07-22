@@ -1,3 +1,4 @@
+// the root component of the app. all other components are somehow 'nested' into this component
 import { Component } from '@angular/core';
 
 @Component({
