@@ -6,6 +6,7 @@ import { Component } from '@angular/core'
 	templateUrl: './blogpost-view.component.html'	// path to template
 })
 
-export class BlogpostComponent {
-
+export class BlogpostViewComponent {
+	blogpostTitle = 'blogpost title here'
+	blogpostBody = 'blogpost body here'
 }
