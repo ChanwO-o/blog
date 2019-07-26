@@ -6,11 +6,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component/app.component';
+import { SidebarListComponent } from './sidebar/sidebar-list/sidebar-list.component';
+import { SidebarBlockComponent } from './sidebar/sidebar-block/sidebar-block.component';
 import { BlogpostViewComponent } from './blogposts/blogpost-view/blogpost-view.component'; // must import without file extension
 
 @NgModule({
   declarations: [ // register component to angular app
     AppComponent,
+    SidebarListComponent,
+    SidebarBlockComponent,
     BlogpostViewComponent
   ],
   imports: [ // other imported modules
