@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component/app.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarListComponent } from './sidebar/sidebar-list/sidebar-list.component';
 import { SidebarBlockComponent } from './sidebar/sidebar-block/sidebar-block.component';
 import { BlogpostViewComponent } from './blogposts/blogpost-view/blogpost-view.component'; // must import without file extension
@@ -13,6 +14,7 @@ import { BlogpostViewComponent } from './blogposts/blogpost-view/blogpost-view.c
 @NgModule({
   declarations: [ // register component to angular app
     AppComponent,
+    SidebarComponent,
     SidebarListComponent,
     SidebarBlockComponent,
     BlogpostViewComponent
@@ -26,4 +28,5 @@ import { BlogpostViewComponent } from './blogposts/blogpost-view/blogpost-view.c
   providers: [],
   bootstrap: [AppComponent] // tells angular to search the current running page for this component by its selector (<app-root>)
 })
+
 export class AppModule { }

@@ -1,4 +1,4 @@
-// root sidebar component that displays list of all sidebar block components attached
+// list of sidebar block components attached
 import { Component } from '@angular/core'
 
 @Component({
