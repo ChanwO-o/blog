@@ -16,7 +16,8 @@ import { BlogpostViewComponent } from './blogposts/blogpost-view/blogpost-view.c
   imports: [ // other imported modules
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent] // tells angular to search the current running page for this component by its selector (<app-root>)
