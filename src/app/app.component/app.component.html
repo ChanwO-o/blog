@@ -1,5 +1,21 @@
 <h1>My app</h1>
 
-<app-sidebar></app-sidebar>
+<div
+	fxLayout="row wrap"
+	fxLayout.lt-md="column"
+	fxLayoutGap="32px"
+	fxLayoutAlign="flex-start">
+
+		<app-sidebar
+			fxFlex.lt-md="50%"
+			fxFlex.lt-sm="100%">
+		</app-sidebar>
+		<app-sidebar
+			fxFlex.lt-md="50%">
+		</app-sidebar>
+		<app-sidebar
+			fxFlex.lt-md="50%">
+		</app-sidebar>
+</div>
 
 <!--<app-blogpost-view></app-blogpost-view>-->

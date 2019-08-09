@@ -1,15 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
+	min-height: 100vh;
+	height: auto;
+	display: cover;
 	font-family: Roboto, "Helvetica Neue", sans-serif;
+	background-color: #fafafa;
 }
 
-app-root { /* app-root full screen */
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+
+/*app-root {*/
+	/* app-root full screen */
+/*	display: flex;*/
+/*	flex-direction: column;*/
+/*	position: absolute;*/
+/*	top: 0;*/
+/*	bottom: 0;*/
+/*	left: 0;*/
+/*	right: 0;*/
+/*	height: 100%;*/
+/*	margin: 0px;*/
+/*	background: url(http://www.freegreatpicture.com/files/147/18380-hd-color-background-wallpaper.jpg) no-repeat center center;*/
+/*	background-attachment: fixed;*/
+/*}*/
+app-root {
+	min-height: 100vh;
+	height: 100%;
+	width: 100%;
+	margin: 0;
 }
