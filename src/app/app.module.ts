@@ -9,7 +9,8 @@ import { AppComponent } from './app.component/app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarListComponent } from './sidebar/sidebar-list/sidebar-list.component';
 import { SidebarBlockComponent } from './sidebar/sidebar-block/sidebar-block.component';
-import { BlogpostViewComponent } from './blogposts/blogpost-view/blogpost-view.component'; // must import without file extension
+import { BlogpostViewComponent } from './blogposts/blogpost-view/blogpost-view.component';
+import { FullpageDirective } from './directives/fullpage.directive'; // must import without file extension
 
 @NgModule({
   declarations: [ // register component to angular app
@@ -17,7 +18,8 @@ import { BlogpostViewComponent } from './blogposts/blogpost-view/blogpost-view.c
     SidebarComponent,
     SidebarListComponent,
     SidebarBlockComponent,
-    BlogpostViewComponent
+    BlogpostViewComponent,
+    FullpageDirective
   ],
   imports: [ // other imported modules
     BrowserModule,
