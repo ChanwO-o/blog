@@ -1,5 +1,4 @@
-import { Directive } from '@angular/core';
-import { ElementRef } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
 	selector: '[appFullpage]'
@@ -9,6 +8,16 @@ export class FullpageDirective {
 
 	constructor(private element: ElementRef) {}
 
+	// call resize() on events
+	@HostListener('window:resize', ['$event']) // window resize
+	onResize(event) {
+		this.resize();
+	}
+
+	@HostListener('load', ['$event']) // first load
+	onLoad(event) {
+		this.resize();
+	}
 
 	resize() {
 		// get original dimensions
