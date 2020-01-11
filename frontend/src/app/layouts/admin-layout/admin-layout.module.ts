@@ -8,6 +8,9 @@ import { ClipboardModule } from 'ngx-clipboard';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { HomeComponent } from '../../pages/home/home.component';
 import { AboutMeComponent } from '../../pages/aboutme/aboutme.component';
+import { ProjectsComponent } from '../../pages/projects/projects.component';
+
+// archive
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 import { IconsComponent } from '../../pages/icons/icons.component';
 import { MapsComponent } from '../../pages/maps/maps.component';
@@ -28,6 +31,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     HomeComponent,
     AboutMeComponent,
+    ProjectsComponent,
+    
+    // archive
     DashboardComponent,
     UserProfileComponent,
     TablesComponent,
