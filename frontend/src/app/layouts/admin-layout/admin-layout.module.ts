@@ -10,6 +10,7 @@ import { HomeComponent } from '../../pages/home/home.component';
 import { AboutMeComponent } from '../../pages/aboutme/aboutme.component';
 import { ProjectsComponent } from '../../pages/projects/projects.component';
 import { BlogComponent } from '../../pages/blog/blog.component';
+import { VisitorsComponent } from '../../pages/visitors/visitors.component';
 
 // archive
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
@@ -34,6 +35,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AboutMeComponent,
     ProjectsComponent,
     BlogComponent,
+    VisitorsComponent,
     
     // archive
     DashboardComponent,

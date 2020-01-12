@@ -4,6 +4,7 @@ import { HomeComponent } from '../../pages/home/home.component';
 import { AboutMeComponent } from '../../pages/aboutme/aboutme.component';
 import { ProjectsComponent } from '../../pages/projects/projects.component';
 import { BlogComponent } from '../../pages/blog/blog.component';
+import { VisitorsComponent } from '../../pages/visitors/visitors.component';
 
 // archive
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
@@ -17,6 +18,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'aboutme',      component: AboutMeComponent },
     { path: 'projects',      component: ProjectsComponent },
     { path: 'blog',      component: BlogComponent },
+    { path: 'visitors',      component: VisitorsComponent },
     
     // archive
     { path: 'dashboard',      component: DashboardComponent },
