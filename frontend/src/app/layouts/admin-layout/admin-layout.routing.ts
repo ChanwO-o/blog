@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from '../../pages/home/home.component';
 import { AboutMeComponent } from '../../pages/aboutme/aboutme.component';
 import { ProjectsComponent } from '../../pages/projects/projects.component';
+import { BlogComponent } from '../../pages/blog/blog.component';
 
 // archive
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
@@ -15,6 +16,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'home',      component: HomeComponent },
     { path: 'aboutme',      component: AboutMeComponent },
     { path: 'projects',      component: ProjectsComponent },
+    { path: 'blog',      component: BlogComponent },
     
     // archive
     { path: 'dashboard',      component: DashboardComponent },
