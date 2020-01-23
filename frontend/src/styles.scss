@@ -1,21 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
 .test1 {
-    background-color: cyan;
+	background-color: cyan;
 }
 
 .test2 {
-    background-color: yellow;
+	background-color: yellow;
 }
 
 .test3 {
-    background-color: pink;
+	background-color: pink;
 }
 
 .test4 {
-    background-color: limegreen;
+	background-color: limegreen;
 }
 
 .responsive {
-  width: 100%;
-  height: auto;
+	width: 100%;
+	height: auto;
+}
+
+.parallax {
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
