@@ -11,7 +11,8 @@ const routes: Routes =[
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
-  }, {
+  },
+  {
     path: '',
     component: AdminLayoutComponent,
     children: [
@@ -20,7 +21,8 @@ const routes: Routes =[
         loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
       }
     ]
-  }, {
+  },
+  {
     path: '',
     component: AuthLayoutComponent,
     children: [
@@ -29,8 +31,9 @@ const routes: Routes =[
         loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
       }
     ]
-  }, {
-    path: '**',
+  },
+  {
+    path: '**', // page not found
     redirectTo: 'dashboard'
   }
 ];
@@ -39,8 +42,10 @@ const routes: Routes =[
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-      useHash: true
+    RouterModule.forRoot(routes,
+    {
+      useHash: true,
+      enableTracing: true // for debugging purposes
     })
   ],
   exports: [

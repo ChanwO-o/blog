@@ -89,22 +89,60 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </div>
 
-<!-- Page content -->
+<!-- Card grid start -->
 <div class="container-fluid mt--7">
 
-	<!-- Card row 1 -->
-	<div class="row">
+	<!-- Render this template for every blog post (each post is a row) -->
+	<div class="row mb-5" *ngFor="let blogpost of blogposts">
+
+		<!-- Left card container -->
 		<div class="col">
+			<div class="card shadow">
 
-			<div class="card shadow border-0">
-				<div id="map-canvas" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div>
+				<!-- Blog post header (post info) -->
+				<div class="card-header bg-transparent">
+					<div class="row align-items-center">
+						<div class="col">
+							<h6 class="text-uppercase text-light ls-1 mb-1">Chan Woo Park, 12 Jan 2020</h6>
+							<h2 class="mb-0">Post title</h2>
+						</div>
+						<div class="col">
+							<ul class="nav nav-pills justify-content-end">
+								<li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales" (click)="data=datasets[0];updateOptions()">
+									<a href="javascript:void(0)" class="nav-link py-2 px-3" [ngClass]="{'active':clicked===true}" data-toggle="tab" (click)="clicked=true;clicked1=false">
+										<span class="d-none d-md-block">Upvote</span>
+										<span class="d-md-none">U</span>
+									</a>
+								</li>
+								<li class="nav-item" data-toggle="chart" data-target="#chart-sales" (click)="data=datasets[1];updateOptions()">
+									<a href="javascript:void(0)" class="nav-link py-2 px-3" [ngClass]="{'active':clicked1===true}" data-toggle="tab" (click)="clicked=false;clicked1=true">
+										<span class="d-none d-md-block">Downvote</span>
+										<span class="d-md-none">D</span>
+									</a>
+								</li>
+								<li class="nav-item" data-toggle="chart" data-target="#chart-sales" (click)="data=datasets[1];updateOptions()">
+									<a href="javascript:void(0)" class="nav-link py-2 px-3" [ngClass]="{'active':clicked1===true}" data-toggle="tab" (click)="clicked=false;clicked1=true">
+										<span class="d-none d-md-block">Comments: 1</span>
+										<span class="d-md-none">C</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Blog post body (content) -->
+				<div class="card-body">
+					<p class="mb-3">Shortened blog post body here...</p>
+				</div>
 			</div>
-
 		</div>
 	</div>
+
+
 </div>
+<!-- End of card grid -->
