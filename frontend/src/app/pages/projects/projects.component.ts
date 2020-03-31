@@ -25,39 +25,22 @@ export class ProjectsComponent implements OnInit {
 		for (i = 0; i < filters.length; i++) {
 			filters[i].addEventListener('click', function(e) {
 				e.preventDefault(); // prevents default href behavior (following link to another page)
-				let groupName = this.getAttribute('data-group');
+
+				let groupName = this.getAttribute('data-group'); // get selected filter name
+				console.log("groupName: " + groupName);
+				console.log(projectGrid);
 
 				let j;
-				for (j = 0; j < filters.length; j++) {
-					filters[j].classList.remove('active');
-				}
+				for (j = 0; j < filters.length; j++)
+					filters[j].classList.remove('active'); // remove active filter
+				this.classList.add('active'); // set current filter as active
 
-				this.classList.add('active');
-
-				// console.log(filters[0].classList);
-				// console.log(filters[1].classList);
-				// console.log(filters[2].classList);
-				// console.log(filters[3].classList);
-
-				projectGrid.filter(groupName);
+				projectGrid.filter(groupName); // apply new filter
 			});
 		}
 
-
-		// filterOption.addEventListener('click', (e:Event) => {
-		// 	// e.preventDefault();
-		// 	console.log("filterOption clicked");
-		// });
-
-
-		// .on('click', function (e) {
-		// 	e.preventDefault();
-		// 	var groupName = $(this).attr('data-group');
-		// 	$('#portfolio-filters > ul > li > a').removeClass('active');
-		// 	$(this).addClass('active');
-		// 	grid.shuffle('shuffle', groupName );
-		// });
-
+		// zoom into project image (can't use magnificPopup library due to dependency on jquery)
+		// TODO: find image-viewing carousel library to use here, prefer one that supports multiple images and can load video
 		// $('a.image-link').magnificPopup({
 		// 	type: 'image',
 		// 	removalDelay: 300,
