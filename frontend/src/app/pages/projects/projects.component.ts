@@ -13,8 +13,25 @@ export class ProjectsComponent implements OnInit {
 	ngOnInit() {
 		console.log("ngOnInit() projects");
 
-		var projectGrid = new Shuffle(document.getElementById('portfolio-grid'), {
+		let projectGrid = new Shuffle(document.getElementById('portfolio-grid'), {
 			itemSelector: '.item'
+		});
+
+		setTimeout(() => { // re-initialize grid shortly after ngOnInit() to hide 'squashing' behavior
+			projectGrid = new Shuffle(document.getElementById('portfolio-grid'), {
+				itemSelector: '.item'
+			});
+		}, 500);
+
+		// setup Shuffle instance event listeners
+		// Get notified when a layout happens
+		projectGrid.on(Shuffle.EventType.LAYOUT, function () {
+			console.log('Things finished moving!');
+		});
+
+		// Do something when an item is removed
+		projectGrid.on(Shuffle.EventType.REMOVED, function (data) {
+			console.log("item removed: ", this, data, data.collection, data.shuffle);
 		});
 
 		const portfolioFilters = document.getElementById('portfolio-filters'); // the div tag that surrounds all filter options
@@ -28,7 +45,6 @@ export class ProjectsComponent implements OnInit {
 
 				let groupName = this.getAttribute('data-group'); // get selected filter name
 				console.log("groupName: " + groupName);
-				console.log(projectGrid);
 
 				let j;
 				for (j = 0; j < filters.length; j++)
@@ -38,6 +54,7 @@ export class ProjectsComponent implements OnInit {
 				projectGrid.filter(groupName); // apply new filter
 			});
 		}
+		// console.log(projectGrid);
 
 		// zoom into project image (can't use magnificPopup library due to dependency on jquery)
 		// TODO: find image-viewing carousel library to use here, prefer one that supports multiple images and can load video
@@ -50,5 +67,4 @@ export class ProjectsComponent implements OnInit {
 		// 	}
 		// });
 	}
-
 }
