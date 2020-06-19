@@ -28,8 +28,13 @@
 	background-size: cover;
 }
 
-.cwp-center {
-	margin: 0 auto;
+.cwp-center-horizontal {
+	margin: auto auto;
+}
+
+.cwp-center-vertical {
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .cwp-fill-width {
