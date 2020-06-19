@@ -8,21 +8,22 @@ declare interface RouteInfo {
     class: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/home', title: 'Home',  icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/aboutme', title: 'About Me',  icon: 'ni-single-02 text-yellow', class: '' },
-    { path: '/projects', title: 'Projects',  icon: 'ni-bullet-list-67 text-red', class: '' },
-    { path: '/blog', title: 'Blog',  icon: 'ni-bullet-list-67 text-red', class: '' },
-    { path: '/visitors', title: 'Visitors',  icon: 'ni-bullet-list-67 text-red', class: '' },
-    { path: '/contact', title: 'Contact',  icon: 'ni-bullet-list-67 text-red', class: '' },
-    
+    // { path: '/home', title: 'Home',  icon: 'ni-tv-2 text-primary', class: '' },
+    // { path: '/aboutme', title: 'About Me',  icon: 'ni-single-02 text-yellow', class: '' },
+    { path: '/aboutme', title: 'Home / 홈',  icon: 'ni-tv-2 text-primary', class: '' },
+    { path: '/projects', title: 'Projects / 프로젝트',  icon: 'ni-app text-red', class: '' },
+    { path: '/blog', title: 'Blog / 블로그',  icon: 'ni-book-bookmark text-green', class: '' },
+    { path: '/visitors', title: 'Visitors / 방명록',  icon: 'ni-chat-round text-yellow', class: '' },
+    { path: '/contact', title: 'Contact / 연락',  icon: 'ni-email-83 text-blue', class: '' }
+
     // archive
-    { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/icons', title: 'Icons',  icon:'ni-planet text-blue', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-orange', class: '' },
-    { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
-    { path: '/tables', title: 'Tables',  icon:'ni-bullet-list-67 text-red', class: '' },
-    { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
-    { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }
+    // { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
+    // { path: '/icons', title: 'Icons',  icon:'ni-planet text-blue', class: '' },
+    // { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-orange', class: '' },
+    // { path: '/user-profile', title: 'User profile',  icon:'ni-single-02 text-yellow', class: '' },
+    // { path: '/tables', title: 'Tables',  icon:'ni-bullet-list-67 text-red', class: '' },
+    // { path: '/login', title: 'Login',  icon:'ni-key-25 text-info', class: '' },
+    // { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }
 ];
 
 @Component({
