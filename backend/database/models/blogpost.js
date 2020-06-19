@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 
 const CommentSchema = new mongoose.Schema({
-	author: {
+	authorId: {
+		type: String, // userId
+		trim: true,
+		default: 'AnonymousId'
+	},
+	authorName: {
 		type: String,
 		trim: true,
 		default: 'Anonymous'
@@ -10,7 +15,7 @@ const CommentSchema = new mongoose.Schema({
 		type: Date,
 		default: Date.now
 	},
-	comment: {
+	body: {
 		type: String,
 		default: 'Empty comment'
 	}
@@ -22,7 +27,12 @@ const BlogPostSchema = new mongoose.Schema({
 		trim: true,
 		default: 'Title'
 	},
-	author: {
+	authorId: {
+		type: String, // userId
+		trim: true,
+		default: 'AnonymousId'
+	},
+	authorName: {
 		type: String,
 		trim: true,
 		default: 'Anonymous'
@@ -43,13 +53,21 @@ const BlogPostSchema = new mongoose.Schema({
 		type: String, // html string
 		default: '<p>blog post body</p>'
 	},
+	// upvotes: {
+	// 	type: Number,
+	// 	default: 0
+	// },
 	upvotes: {
-		type: Number,
-		default: 0
+		type: [String], // list of userIds
+		default: []
 	},
+	// downvotes: {
+	// 	type: Number,
+	// 	default: 0
+	// },
 	downvotes: {
-		type: Number,
-		default: 0
+		type: [String], // list of userIds
+		default: []
 	},
 	comments: {
 		type: [CommentSchema],
