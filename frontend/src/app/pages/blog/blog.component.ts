@@ -1,17 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import BlogPost from 'src/app/models/blogpost';
+import { BlogService } from 'src/app/blog.service';
 
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.scss']
+	selector: 'app-blog',
+	templateUrl: './blog.component.html',
+	styleUrls: ['./blog.component.scss']
 })
 export class BlogComponent implements OnInit {
 
-  blogposts: any[] = [1, 2, 3];
+	blogposts: BlogPost[] = [];
 
-  constructor() { }
+	constructor(private blogService: BlogService) { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+		console.log("blogcomponent.ngOnInit()");
+
+
+		this.blogService.getBlogPosts()
+			.subscribe((blogposts: BlogPost[]) => {
+				console.log("blogservice: ", blogposts);
+				this.blogposts = blogposts;
+			});
+	}
 
 }

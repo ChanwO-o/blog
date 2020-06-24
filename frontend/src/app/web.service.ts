@@ -9,16 +9,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WebService {
 
-	readonly ROOT_URL;
+	readonly ROOT_URL = "http://localhost:8081";
 
 	// use dependency injection to inject the HttpClient to the service
 	constructor(private http : HttpClient) {
-		// this.ROOT_URL = url;
-		this.ROOT_URL = "http://localhost:8081";
+
 	}
 
 	get(uri : string) {
-		return this.http.get('${this.ROOT_URL}/${uri}');
+		// let url = '${this.ROOT_URL}/${uri}';
+		let url = this.ROOT_URL + "/" + uri;
+		console.log("web.service get() start, url: ", url);
+		// return this.http.get('${this.ROOT_URL}/${uri}');
+		return this.http.get(url);
+		// return this.http.get('http://localhost:8081/blogposts');
+		// return this.http.get('https://localhost:8081');
+		// return this.http.get('https://b8a11b365e304820af7ea3311ee711bc.vfs.cloud9.us-east-1.amazonaws.com:8081/blogposts');
 	}
 
 	post(uri : string, payload : Object) {
