@@ -1,5 +1,4 @@
 const express = require('express');
-var cors = require('cors');
 const app = express();
 const mongoose = require('./database/mongoose');
 
@@ -14,7 +13,6 @@ CORS - Cross Origin Request Security
 localhost:8080 - frontend
 localhost:8081 - backend api (must reject any request from any other port besides 8080)
 */
-// app.use(cors());
 app.use((req, res, next) => {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Methods", "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE");
