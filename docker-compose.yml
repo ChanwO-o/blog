@@ -1,0 +1,20 @@
+version: '3' # specify docker-compose version
+
+# Define the services/ containers to be run
+services:
+    #angular: # name of the first service
+        #build: angular-app # specify the directory of the Dockerfile
+        #ports:
+        #- "4200:4200" # specify port mapping
+        
+    express: # name of the second service
+        build: ./backend # build using Dockerfile in this directory
+        ports:
+        - "8081:8081" #specify ports mapping
+        depends_on:
+        - database # link this service to the database service
+        
+    database: # name of the third service
+        image: mongo # instead of using a dockerfile (build cmd), I can just use a raw image since no further setup is required
+        ports:
+        - "27017:27017" # specify port forwarding
