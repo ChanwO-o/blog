@@ -2,10 +2,12 @@ version: '3' # specify docker-compose version
 
 # Define the services/ containers to be run
 services:
-    #angular: # name of the first service
-        #build: angular-app # specify the directory of the Dockerfile
-        #ports:
-        #- "4200:4200" # specify port mapping
+    angular: # name of the first service
+        build:
+            context: ./frontend # specify the directory of the Dockerfile
+            dockerfile: Dockerfile.dev
+        ports:
+        - "8080:8080" # specify port mapping
         
     express: # name of the second service
         build: ./backend # build using Dockerfile in this directory
