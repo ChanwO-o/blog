@@ -1,0 +1,39 @@
+### STAGE 1: Build Angular Production ###
+
+FROM node:10.18.0-alpine AS build
+WORKDIR /usr/src/app
+
+# copy package.json & package-lock.json
+COPY package.json ./
+
+#RUN npm cache clean --force
+RUN npm install
+
+# install angular cli
+RUN npm install -g @angular/cli
+
+# copy contents of current dir to /usr/src/app
+COPY . .
+
+# build angular app for production
+RUN ng build --prod
+
+
+
+
+
+
+### STAGE 2: Serve via Nginx ###
+
+FROM nginx:1.17.1-alpine
+
+# nginx.conf not needed
+#COPY nginx.conf /etc/nginx/nginx.conf
+
+# copy produced angular files to nginx directory
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
+
+# nginx uses port 80 (maps host:8080 -> container:80)
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

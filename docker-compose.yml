@@ -5,9 +5,9 @@ services:
     angular: # name of the first service
         build:
             context: ./frontend # specify the directory of the Dockerfile
-            dockerfile: Dockerfile.dev
+            dockerfile: Dockerfile.dev # dev: Dockerfile.dev  prod: Dockerfile.prod
         ports:
-        - "8080:8080" # specify port mapping
+        - "8080:8080" # dev: 8080:8080  prod: 8080:80
         
     express: # name of the second service
         build: ./backend # build using Dockerfile in this directory
