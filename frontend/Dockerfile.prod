@@ -25,15 +25,22 @@ RUN ng build --prod
 
 ### STAGE 2: Serve via Nginx ###
 
-FROM nginx:1.17.1-alpine
+FROM nginx:1.17.1
 
-# nginx.conf not needed
-#COPY nginx.conf /etc/nginx/nginx.conf
+# install certbot (n other stuff)
+RUN apt-get update
+RUN apt-get install certbot python-certbot-nginx vim -y
 
-# copy produced angular files to nginx directory
+# copy nginx config to nginx directory
+#COPY default.conf /etc/nginx/conf.d/default.conf
+
+# copy angular files to nginx directory
 COPY --from=build /usr/src/app/dist /usr/share/nginx/html
 
-# nginx uses port 80 (maps host:8080 -> container:80)
-EXPOSE 80
+# get & install certificate (cannot call via Dockerfile; open container cli & manually enter inputs)
+#RUN certbot --nginx
+
+# nginx uses ports 80/443 (maps host:80/443 -> container:80/443)
+EXPOSE 80 443
 
 CMD ["nginx", "-g", "daemon off;"]
