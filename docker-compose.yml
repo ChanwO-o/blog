@@ -7,16 +7,20 @@ services:
             context: ./frontend # specify the directory of the Dockerfile
             dockerfile: Dockerfile.prod # dev: Dockerfile.dev  prod: Dockerfile.prod
         ports:
-        - "80:80" # dev: 8080:8080  prod: 80:80
+            - "80:80" # dev: 8080:8080  prod: 80:80
+            - "443:443" # prod only
+        volumes:
+            -  "./frontend/letsencrypt:/etc/letsencrypt" # mount certificate data directory (for prod)
+        
         
     express: # name of the second service
         build: ./backend # build using Dockerfile in this directory
         ports:
-        - "8081:8081" #specify ports mapping
+            - "8081:8081"
         depends_on:
-        - database # link this service to the database service
+            - database # link this service to the database service
         
     database: # name of the third service
         image: mongo # instead of using a dockerfile (build cmd), I can just use a raw image since no further setup is required
         ports:
-        - "27017:27017" # specify port forwarding
+            - "27017:27017"
