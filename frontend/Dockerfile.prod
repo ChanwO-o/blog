@@ -1,0 +1,46 @@
+### STAGE 1: Build Angular Production ###
+
+FROM node:10.18.0-alpine AS build
+WORKDIR /usr/src/app
+
+# copy package.json & package-lock.json
+COPY package.json ./
+
+#RUN npm cache clean --force
+RUN npm install
+
+# install angular cli
+RUN npm install -g @angular/cli
+
+# copy contents of current dir to /usr/src/app
+COPY . .
+
+# build angular app for production
+RUN ng build --prod
+
+
+
+
+
+
+### STAGE 2: Serve via Nginx ###
+
+FROM nginx:1.17.1
+
+# install certbot (n other stuff)
+RUN apt-get update
+RUN apt-get install certbot python-certbot-nginx vim -y
+
+# copy nginx config to nginx directory
+#COPY default.conf /etc/nginx/conf.d/default.conf
+
+# copy angular files to nginx directory
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
+
+# get & install certificate (cannot call via Dockerfile; open container cli & manually enter inputs)
+#RUN certbot --nginx
+
+# nginx uses ports 80/443 (maps host:80/443 -> container:80/443)
+EXPOSE 80 443
+
+CMD ["nginx", "-g", "daemon off;"]

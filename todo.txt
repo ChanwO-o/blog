@@ -1,8 +1,0 @@
-frontend:
-    change color theme
-    import pixel images (name banner, tab labels)
-    create pagenotfound component
-    home background banner, recent blogposts
-
-backend:
-    implement blogposts api

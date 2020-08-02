@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 8080 --host 0.0.0.0",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -30,6 +30,7 @@
     "ngx-toastr": "9.1.2",
     "nouislider": "13.1.1",
     "rxjs": "6.4.0",
+    "shufflejs": "^5.2.3",
     "zone.js": "0.8.29"
   },
   "devDependencies": {

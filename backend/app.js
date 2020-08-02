@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('./database/mongoose');
 
-const List = require('./database/models/list');
-const Task = require('./database/models/task');
+const BlogPost = require('./database/models/blogpost');
+// const List = require('./database/models/list');
+// const Task = require('./database/models/task');
 
 app.use(express.json()); // json parser must stay on top
 
@@ -15,7 +16,8 @@ localhost:8081 - backend api (must reject any request from any other port beside
 app.use((req, res, next) => {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Methods", "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE");
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	// res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	res.header("Access-Control-Allow-Headers", "*");
 	next();
 });
 
@@ -26,42 +28,60 @@ List: Create, Update, ReadOne, ReadAll, Delete
 Task: Create, Update, ReadOne, ReadAll, Delete
 */
 app.get('/', (req, res) => {
-	(new List({ 'title': req.body.title }))
-		.save()
-		.then((list) => res.send(list))
+	res.send("root!");
+});
+
+app.get('/blogposts/new', (req, res) => {
+	(new BlogPost({
+		'title': "Calvin and Hobbes3",
+		'authorId': "b1llw@terson",
+		'authorName': "Bill Waterson",
+		'published': true,
+		'body': "<p>Ten million bottles of beer on the wall, ten million bottles of beer!</p>"
+	}))
+	.save()
+	.then((blogpost) => res.send(blogpost))
+	.catch((error) => console.log(error));
+});
+
+app.get('/blogposts', (req, res) => {
+	BlogPost.find({})
+		.then(blogposts => res.send(blogposts))
 		.catch((error) => console.log(error));
 });
 
-app.get('/lists', (req, res) => {
-	List.find({})
-		.then(lists => res.send(lists))
+app.get('/blogposts/:blogpostId', (req, res) => {
+	BlogPost.find({ _id: req.params.blogpostId })
+		.then(blogpost => res.send(blogpost))
 		.catch((error) => console.log(error));
 });
 
-app.get('/lists/:listId', (req, res) => {
-	List.find({ _id: req.params.listId })
-		.then(list => res.send(list))
+app.post('/blogposts', (req, res) => {
+	(new BlogPost({
+		'title': req.body.title,
+		'authorId': req.body.authorId,
+		'authorName': req.body.authorName,
+		'published': true,
+		'body': req.body.body
+	}))
+	.save()
+	.then((blogpost) => res.send(blogpost))
+	.catch((error) => console.log(error));
+});
+
+// app.patch('/blogposts/:blogpostId', (req, res) => {
+// 	BlogPost.findOneAndUpdate({ '_id': req.params.blogpostId },
+// 		{
+
+// 		})
+// });
+
+app.delete('/blogposts/:blogpostId', (req, res) => {
+	BlogPost.findByIdAndDelete(req.params.blogpostId)
+		.then(blogpost => res.send(blogpost))
 		.catch((error) => console.log(error));
 });
 
-app.post('/lists', (req, res) => {
-	(new List({ 'title': req.body.title }))
-		.save()
-		.then((list) => res.send(list))
-		.catch((error) => console.log(error));
-});
-
-app.patch('/lists/:listId', (req, res) => {
-	List.findOneAndUpdate({ '_id': req.params.listId }, { $set: req.body })
-		.then(list => res.send(list))
-		.catch((error) => console.log(error));
-});
-
-app.delete('/lists/:listId', (req, res) => {
-	List.findByIdAndDelete(req.params.listId)
-		.then(list => res.send(list))
-		.catch((error) => console.log(error));
-});
 
 var PORT = 8081;
 app.listen(PORT, () => console.log("Server is connected on " + PORT));
