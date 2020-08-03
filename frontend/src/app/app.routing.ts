@@ -9,7 +9,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'aboutme', // component name from admin-layout.routing.ts
     pathMatch: 'full',
   },
   {
@@ -34,7 +34,7 @@ const routes: Routes =[
   },
   {
     path: '**', // page not found
-    redirectTo: 'dashboard'
+    redirectTo: 'aboutme' // component name from admin-layout.routing.ts
   }
 ];
 
