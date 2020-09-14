@@ -1,4 +1,21 @@
 /*=======================================================================
+	Introduction Section
+=======================================================================*/
+
+// color buttons but smaller and with bottom margins
+.smallerbtn {
+	line-height: 1.0;
+	margin-bottom: 5px;
+}
+
+// mark tag transparent (has default background color on chromium
+mark {
+	background: none;
+}
+
+
+
+/*=======================================================================
 	Timeline Section
 =======================================================================*/
 
