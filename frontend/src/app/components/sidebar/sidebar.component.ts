@@ -13,10 +13,10 @@ export const ROUTES: RouteInfo[] = [
     { path: '/aboutme', title: 'Home',  icon: 'ni-tv-2 text-primary', class: '' },
     { path: '/projects', title: 'Projects',  icon: 'ni-app text-red', class: '' },
     { path: '/blog', title: 'Blog',  icon: 'ni-book-bookmark text-green', class: '' },
-    { path: '/visitors', title: 'Visitors',  icon: 'ni-chat-round text-yellow', class: '' },
-    { path: '/contact', title: 'Contact',  icon: 'ni-email-83 text-blue', class: '' }
+    { path: '/contact', title: 'Contact',  icon: 'ni-email-83 text-yellow', class: '' }
 
     // archive
+    // { path: '/visitors', title: 'Visitors',  icon: 'ni-chat-round text-yellow', class: '' },
     // { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
     // { path: '/icons', title: 'Icons',  icon:'ni-planet text-blue', class: '' },
     // { path: '/maps', title: 'Maps',  icon:'ni-pin-3 text-orange', class: '' },
