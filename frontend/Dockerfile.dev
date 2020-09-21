@@ -1,16 +1,27 @@
 ### STAGE 1: Build ###
 
 FROM node:10.18.0-alpine AS build
-WORKDIR /usr/src/app
+
+# install git
+RUN apk add git
+
+# default directory opened by VSCode via Remote - Containers extension
+WORKDIR /usr/src/app/src
+
+# copy everything (including .git folder) to /usr/src/app/src
+COPY . .
+
+# cd to frontend
+WORKDIR /usr/src/app/src/frontend
 
 # copy package.json & package-lock.json
-COPY package.json ./
+# COPY frontend/package.json .
 
 RUN npm cache clean --force
 RUN npm install
 
-# copy contents of current dir to /usr/src/app
-COPY . .
+# copy contents of current dir to /usr/src/app/src/frontend
+# COPY . .
 
 EXPOSE 8080
 
