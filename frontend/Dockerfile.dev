@@ -23,6 +23,9 @@ RUN npm install
 # copy contents of current dir to /usr/src/app/src/frontend
 # COPY . .
 
+# set color prompt for easier use
+RUN export PS1="\e[0;36m \w \$ \e[m"
+
 EXPOSE 8080
 
 # call start script from package.json
