@@ -4,13 +4,13 @@ version: '3' # specify docker-compose version
 services:
     angular: # name of the first service
         build:
-            context: ./frontend # specify the directory of the Dockerfile
-            dockerfile: Dockerfile.prod # dev: Dockerfile.dev  prod: Dockerfile.prod
+            context: . # dev: .  prod: ./frontend   # because dev needs everything (including .git folder) to use as env.
+            dockerfile: frontend/Dockerfile.dev # dev: Dockerfile.dev  prod: Dockerfile.prod
         ports:
-            - "80:80" # dev: 8080:8080  prod: 80:80
-            - "443:443" # prod only
-        volumes:
-            -  "./frontend/letsencrypt:/etc/letsencrypt" # mount certificate data directory (for prod)
+            - "8080:8080" # dev: 8080:8080  prod: 80:80
+            #- "443:443" # prod only
+        # volumes: # prod only
+            #-  "./frontend/letsencrypt:/etc/letsencrypt" # prod only: mount certificate data directory
         
         
     express: # name of the second service
