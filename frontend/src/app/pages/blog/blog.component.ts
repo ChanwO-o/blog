@@ -14,8 +14,7 @@ export class BlogComponent implements OnInit {
 	constructor(private blogService: BlogService) { }
 
 	ngOnInit() {
-		console.log("blogcomponent.ngOnInit()");
-
+		analytics.page("BLOG");
 
 		this.blogService.getBlogPosts()
 			.subscribe((blogposts: BlogPost[]) => {

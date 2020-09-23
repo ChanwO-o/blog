@@ -11,7 +11,7 @@ export class ProjectsComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit() {
-		console.log("ngOnInit() projects");
+		analytics.page("PROJECTS");
 
 		let projectGrid = new Shuffle(document.getElementById('portfolio-grid'), {
 			itemSelector: '.item'
