@@ -10,7 +10,6 @@ export class AboutMeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    analytics.page("ABOUTME");
   }
 
 }

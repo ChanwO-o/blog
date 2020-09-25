@@ -10,7 +10,7 @@ export class VisitorsComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit() {
-		analytics.page("VISITORS");
+
 	}
 
 }
