@@ -44,7 +44,7 @@ const routes: Routes =[
     BrowserModule,
     RouterModule.forRoot(routes,
     {
-      useHash: true,
+      useHash: false,
       enableTracing: false // for debugging purposes
     })
   ],
